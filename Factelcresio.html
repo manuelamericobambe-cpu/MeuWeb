@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Ango-Fucture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        header p { font-size: 1.1em; opacity: 0.9; }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #667eea;
+        }
+
+        /* GALERIA DE IMAGENS */
+        .galeria-imagens {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .item-imagem {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .item-imagem:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .item-imagem img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-imagem .legenda {
+            padding: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* GALERIA DE VÍDEOS */
+        .galeria-videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .item-video {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .item-video video {
+            width: 100%;
+            height: 250px;
+            display: block;
+            background: black;
+        }
+
+        .item-video .legenda {
+            padding: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #333;
+            color: white;
+            margin-top: 60px;
+        }
+
+        /* EFEITO AO CLICAR NA IMAGEM */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Galeria Ango-Fucture</h1>
+        <p>7 Imagens + 2 Vídeos do nosso projeto</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- SEÇÃO DE IMAGENS -->
+        <h2>📸 Nossas Imagens</h2>
+        <div class="galeria-imagens">
+            
+            <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango6.jpg" alt="Imagem 1">
+                <div class="legenda">Imagem 1 - Protótipo Arduino</div>
+            </div>
+
+            <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango5.jpg" alt="Imagem 2">
+                <div class="legenda">Imagem 2 - Equipe Tecmicro</div>
+            </div>
+
+            <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango4.jpg" alt="Imagem 3">
+                <div class="legenda">Imagem 3 - Hackathon</div>
+            </div>
+
+            <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango4.jpg" alt="Imagem 4">
+                <div class="legenda">Imagem 4 - Testes</div>
+            </div>
+
+            <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango3.jpg" alt="Imagem 5">
+                <div class="legenda">Imagem 5 - Apresentação</div>
+            </div>
+
+            <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango2.jpg" alt="Imagem 6">
+                <div class="legenda">Imagem 6 - Circuito</div>
+                            <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango10.jpg"  alt="Imagem 7">
+                <div class="legenda">Imagem 7 - Resultado Final</div>
+            </div>
+            </div>
+
+            <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango11.jpg"  alt="Imagem 7">
+                <div class="legenda">Imagem 7 - Resultado Final</div>
+            </div>
+                        <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango12.jpg"  alt="Imagem 7">
+                <div class="legenda">Imagem 7 - Resultado Final</div>
+            </div>
+                        <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango13.jpg"  alt="Imagem 7">
+                <div class="legenda">Imagem 7 - Resultado Final</div>
+            </div>
+            
+                        <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="hacka.jpg"  alt="Imagem 7">
+                <div class="legenda">Imagem 7 - Resultado Final</div>
+            </div>
+                        <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango14.jpg"  alt="Imagem 7">
+                <div class="legenda">Imagem 7 - Resultado Final</div>
+            </div>
+                        <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango15.jpg"  alt="Imagem 7">
+                <div class="legenda">Imagem 7 - Resultado Final</div>
+            </div>
+            <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango9.jpg"  alt="Imagem 7">
+                <div class="legenda">Imagem 7 - Resultado Final</div>
+            </div>
+
+            <div class="item-imagem" onclick="abrirModal(this)">
+                <img src="ango1.jpg"  alt="Imagem 7">
+                <div class="legenda">Imagem 7 - Resultado Final</div>
+            </div>
+
+        </div>
+
+        <!-- SEÇÃO DE VÍDEOS -->
+        <h2>🎥 Nossos Vídeos</h2>
+        <div class="galeria-videos">
+            
+            <div class="item-video">
+                <video controls>
+                    <source src="ango7.mp4" type="video/mp4">
+                    O teu navegador não suporta vídeo.
+                </video>
+                <div class="legenda">Vídeo 1 - Demonstração do Projeto</div>
+            </div>
+
+            <div class="item-video">
+                <video controls>
+                    <source src="ango8.mp4" type="video/mp4">
+                    O teu navegador não suporta vídeo.
+                </video>
+                <div class="legenda">Vídeo 2 - Pitch do Hackathon</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Ango-Fucture | Desenvolvido na Tecmicro</p>
+    </footer>
+
+    <!-- MODAL PARA AMPLIAR IMAGEM -->
+    <div class="modal" id="modal" onclick="fecharModal()">
+        <img id="imgGrande" src="" alt="">
+    </div>
+
+    <script>
+        // Função para abrir imagem grande
+        function abrirModal(elemento) {
+            const img = elemento.querySelector('img');
+            document.getElementById('imgGrande').src = img.src;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        // Função para fechar modal
+        function fecharModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

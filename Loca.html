@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ango-Fucture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-box h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: clamp(1.8em, 5vw, 2em);
+        }
+
+        .login-box p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+        }
+
+        .erro {
+            background: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h1>Ango-Fucture</h1>
+        <p>Aceda à galeria do projeto</p>
+        
+        <div class="erro" id="mensagemErro">Email ou palavra-passe incorretos!</div>
+
+        <form id="formLogin">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="senha">Palavra-passe</label>
+                <input type="password" id="senha" required>
+            </div>
+
+            <button type="submit" class="btn-login">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        // AQUI VOCÊ DEFINE O EMAIL E SENHA CORRETOS
+        const EMAIL_CORRETO = "Milton@g.com";
+        const SENHA_CORRETA = "Ango2026";
+
+        document.getElementById('formLogin').addEventListener('submit', function(e) {
+            e.preventDefault(); // impede de enviar o form
+
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const erro = document.getElementById('mensagemErro');
+
+            if (email === EMAIL_CORRETO && senha === SENHA_CORRETA) {
+                // Se estiver certo, vai para a página da galeria
+                window.location.href = "Factelcresio.html";
+            } else {
+                // Se estiver errado, mostra erro
+                erro.style.display = "block";
+            }
+        });
+    </script>
+
+</body>
+</html>
